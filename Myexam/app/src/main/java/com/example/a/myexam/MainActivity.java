@@ -20,6 +20,45 @@ public class MainActivity extends AppCompatActivity {
         int hour;
     }
 
+
+    class weatherAdapter extends BaseAdapter{
+
+        @Override
+        public int getCount() {
+            return list.size();
+        }
+
+        @Override
+        public Object getItem(int position) {
+            return list.get(position);
+        }
+
+        @Override
+        public long getItemId(int position) {
+            return position;
+        }
+
+        @Override
+        public View getView(int position, View convertView, ViewGroup parent) {
+            if(convertView == null){
+                convertView = getLayoutInflater().inflate(R.layout.custlist ,null);
+            }
+            TextView textView1 = (TextView) convertView.findViewById(R.id.custText1);
+            TextView textView2 = (TextView) convertView.findViewById(R.id.custText2);
+            WeatherData data = list.get(position);
+            String info1 = "날씨 : "+ data.weather + " , 온도 : " + data.temperature;
+            String info2 = "day : "+ data.day+ ", hour: " + data.hour;
+            textView1.setText(info1);
+            textView2.setText(info2);
+
+
+            return convertView;
+        }
+    }
+
+
+
+
     ArrayList<WeatherData> list = new ArrayList<>();
 
     @Override
@@ -35,13 +74,13 @@ public class MainActivity extends AppCompatActivity {
                     myData.weather = "흐림";
                     break;
                 case 1:
-                    myData.weather = "맑음";
-                    break;
-                case 2:
                     myData.weather = "비";
                     break;
-                case 3:
+                case 2:
                     myData.weather = "눈";
+                    break;
+                case 3:
+                    myData.weather = "맑음";
                     break;
             }
 
@@ -52,6 +91,8 @@ public class MainActivity extends AppCompatActivity {
         }
 
         ListView listView = (ListView) findViewById(R.id.myCustList);
+        weatherAdapter adapter = new weatherAdapter();
+        listView.setAdapter(adapter);
 
     }
 }
