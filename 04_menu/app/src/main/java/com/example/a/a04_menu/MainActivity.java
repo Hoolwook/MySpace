@@ -34,7 +34,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreateContextMenu(menu, v, menuInfo);
 
         menu.setHeaderTitle("MyContextMenu");
-        // 두번째가 contextMenu ID
+        // 두번째가 contextMenu ID 이다.
         menu.add(0,1,0, "context menu1");
         menu.add(0,2,0, "context menu2");
         menu.add(0,3,0, "context menu3");
