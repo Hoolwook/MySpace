@@ -8,11 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.a.a11_sqlite.MainActivity">
+    tools:context="com.example.a.a12_webview.MainActivity">
 
-    <TextView
-        android:id="@+id/myTextView"
+    <Button
+        android:id="@+id/btnGo"
+        android:onClick="onBtnClick"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="Hello World!" />
+        android:text="go" />
+
+    <EditText
+        android:layout_toRightOf="@id/btnGo"
+        android:id="@+id/editURL"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content" />
+    <WebView
+        android:id="@+id/webView"
+        android:layout_below="@id/btnGo"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"></WebView>
 </RelativeLayout>

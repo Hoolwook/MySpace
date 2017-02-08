@@ -54,9 +54,9 @@ public class TestSQLiteHandler {
         while(c.moveToNext()){
             String name = c.getString( c.getColumnIndex("name"));
             int age = c.getInt( c.getColumnIndex("age"));
-            String adddress = c.getString( c.getColumnIndex("address"));
+            String address = c.getString( c.getColumnIndex("address"));
 
-            res += "name"+ name + "age"+ age + "address" + adddress + "\n";
+            res += "name"+ name + "age"+ age + "address" + address + "\n";
         }
 
         return res;
