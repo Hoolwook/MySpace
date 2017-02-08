@@ -44,11 +44,24 @@ public class MainActivity extends AppCompatActivity {
         webView.loadUrl("http://www.naver.com");
     }
 
+    @Override
+    public void onBackPressed() {
+
+        //뒤로 갈수있는지 확인
+        if(webView.canGoBack()){
+            webView.goBack();
+        }else{
+            //액티비티 종료
+            finish();
+        }
+    }
+
     public void onBtnClick(View v){
         EditText editURL = (EditText) findViewById(R.id.editURL);
         String str = editURL.getText().toString();
         webView.loadUrl(str);
 
     }
+
 
 }
