@@ -21,6 +21,13 @@ public class MainActivity extends AppCompatActivity {
         int hour;
         float temp;
         String wfKor;
+
+        @Override
+        public String toString() {
+            String res = "day :" + day + "hour :" + hour + "temp :" + temp + "wfKor : "+ wfKor;
+
+            return res;
+        }
     }
 
 
@@ -35,6 +42,12 @@ public class MainActivity extends AppCompatActivity {
         @Override
         protected void onPostExecute(String s) {
             super.onPostExecute(s);
+            String res = "";
+            for(WeatherData data: list){
+                res += data.toString() +"\n";
+            }
+
+            textView.setText(res);
         }
 
         @Override
@@ -47,26 +60,36 @@ public class MainActivity extends AppCompatActivity {
                 int eventType = xpp.getEventType();
 
 
-
+                WeatherData data = null;
                 while(eventType != XmlPullParser.END_DOCUMENT ){
                     switch (eventType){
                         case XmlPullParser.START_TAG:
                             if(xpp.getName().equals("hour")){
-                                WeatherData data = new WeatherData();
                                 type = Datatype.hourType;
+                                data = new WeatherData();
+                                list.add(data);
                             }else if(xpp.getName().equals("wfKor")){
-
+                                type = Datatype.wfKorType;
+                            }else if(xpp.getName().equals("day")){
+                                type = Datatype.dayType;
+                            }else if(xpp.getName().equals("temp")){
+                                type = Datatype.tempType;
                             }
                             break;
+
                         case  XmlPullParser.TEXT:
                             switch (type){
                                 case hourType:
+                                    data.hour = Integer.parseInt(xpp.getText());
                                     break;
                                 case dayType:
+                                    data.day = Integer.parseInt(xpp.getText());
                                     break;
                                 case tempType:
+                                    data.temp = Float.parseFloat(xpp.getText());
                                     break;
                                 case wfKorType:
+                                    data.wfKor = xpp.getText();
                                     break;
                             }
                             type = Datatype.none;
