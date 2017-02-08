@@ -8,18 +8,23 @@
     android:paddingLeft="@dimen/activity_horizontal_margin"
     android:paddingRight="@dimen/activity_horizontal_margin"
     android:paddingTop="@dimen/activity_vertical_margin"
-    tools:context="com.example.a.a13_location.MainActivity">
-
-    <TextView
-        android:id="@+id/myTextView"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Hello World!" />
+    tools:context="com.example.a.a14_mediaplayer.MainActivity">
 
     <Button
-        android:text="locationName"
-        android:layout_alignParentRight="true"
-        android:onClick="btnClick"
+        android:onClick="onPlayClick"
         android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Play" />
+    <Button
+        android:onClick="onStopClick"
+        android:layout_alignParentRight="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="stop" />
+    <SeekBar
+        android:progress="30"
+        android:id="@+id/playSeekBar"
+        android:layout_centerVertical="true"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content" />
 </RelativeLayout>
