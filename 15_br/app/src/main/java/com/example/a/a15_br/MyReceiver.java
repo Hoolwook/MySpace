@@ -25,7 +25,7 @@ public class MyReceiver extends BroadcastReceiver {
         }
         Toast.makeText(context, str , Toast.LENGTH_SHORT).show();
 
-
+    //manifests 에 리시버와 인텐트필터를 등록해야함
 
 
     }
