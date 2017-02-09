@@ -15,17 +15,20 @@ public class MyService extends Service {
         super.onCreate();
         Log.d("my Service" , "onCreate");
     }
+    @Override
+    public int onStartCommand(Intent intent, int flags, int startId) {
+        Log.d("my Service" , "onStartCommand");
+        return START_STICKY;
+
+//        return START_NOT_STICKY  서비스를 재실행하지 않음
+
+//        return super.onStartCommand(intent, flags, startId);
+    }
 
     @Override
     public void onDestroy() {
         super.onDestroy();
-        Log.d("my Service" , "onDestry");
-    }
-
-    @Override
-    public int onStartCommand(Intent intent, int flags, int startId) {
-        Log.d("my Service" , "onStartCommand");
-        return super.onStartCommand(intent, flags, startId);
+        Log.d("my Service" , "onDestroy");
     }
 
     @Override
