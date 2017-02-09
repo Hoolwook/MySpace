@@ -54,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
             String res = "";
             for(WeatherData data : list){
                 if(data.wfEn.toString().equals("wfEn")){
-                    if(equals("claer")){
+                    if(equals("clear")){
                         custImage.setImageResource(R.drawable.sunny);
                     }else if(equals("Partly Cloudy")){
                         custImage.setImageResource(R.drawable.cloud);
