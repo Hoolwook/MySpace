@@ -15,6 +15,7 @@ public class MainActivity extends AppCompatActivity {
     SeekBar seekBar;
     MediaPlayer mp = null;
     @Override
+
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
@@ -58,6 +59,7 @@ public class MainActivity extends AppCompatActivity {
             mp.start();
             seekBar.setMax(mp.getDuration());
             new Thread(new Runnable() {
+
                 @Override
                 public void run() {
                     // 스레드에서 프로그래스바는 바로 접근가능(원래 스레드에서 UI단에서 접근불가)
